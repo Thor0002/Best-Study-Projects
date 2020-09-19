@@ -3,9 +3,6 @@
 #include <algorithm>
 #include <sstream>
 #include <iomanip>
-#include <map>
-#include <vector>
-#include <set>
 using namespace std;
 
 using namespace std;
@@ -13,7 +10,7 @@ using namespace std;
 class Rational {
 public:
     Rational() {
-        // Ðåàëèçóéòå êîíñòðóêòîð ïî óìîë÷àíèþ
+        // Ð ÐµÐ°Ð»Ð¸Ð·ÑƒÐ¹Ñ‚Ðµ ÐºÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ Ð¿Ð¾ ÑƒÐ¼Ð¾Ð»Ñ‡Ð°Ð½Ð¸ÑŽ
     	numerator = 0;
     	denominator = 1;
     }
@@ -39,17 +36,17 @@ public:
     }
 
     int Numerator() const {
-        // Ðåàëèçóéòå ýòîò ìåòîä
+        // Ð ÐµÐ°Ð»Ð¸Ð·ÑƒÐ¹Ñ‚Ðµ ÑÑ‚Ð¾Ñ‚ Ð¼ÐµÑ‚Ð¾Ð´
     	return numerator;
     }
 
     int Denominator() const {
-        // Ðåàëèçóéòå ýòîò ìåòîä
+        // Ð ÐµÐ°Ð»Ð¸Ð·ÑƒÐ¹Ñ‚Ðµ ÑÑ‚Ð¾Ñ‚ Ð¼ÐµÑ‚Ð¾Ð´
     	return denominator;
     }
 
 private:
-    // Äîáàâüòå ïîëÿ
+    // Ð”Ð¾Ð±Ð°Ð²ÑŒÑ‚Ðµ Ð¿Ð¾Ð»Ñ
     int numerator;
     int denominator;
 };
@@ -77,13 +74,28 @@ Rational operator/(Rational d1, Rational d2){
 	return Rational (d1.Numerator()*d2.Denominator(),d1.Denominator()*d2.Numerator());
 }
 
-istream& operator>>(istream& stream, Rational& d){
-	int n = 0, m = 0;
-	stream >> n;
-	stream.ignore(1);
-	stream >> m;
-	if(stream) {d = Rational(n,m);}
-	return stream;
+istream& operator>>(istream& istream, Rational& d){
+	int n, m;
+	string s;
+	istream >> s;
+	stringstream ss(s);
+	if(not (ss >> n)){
+		throw invalid_argument("");
+	}
+	if (ss.peek() != '/') {
+		throw invalid_argument("");
+	}
+	ss.ignore(1);
+	if(not (ss >> m)){
+		throw invalid_argument("");
+	}
+	string e;
+	ss >> e;
+	if(e != "") {
+		throw invalid_argument("");
+	}
+	d = Rational(n,m);
+	return istream;
 }
 
 ostream& operator<<(ostream& stream,const Rational& d){
@@ -100,13 +112,15 @@ bool operator<(Rational d1, Rational d2){
 int main() {
 	Rational d1, d2;
 	char c;
+	while(cout){
 	try {cin >> d1 >> c >> d2;}
 	catch (invalid_argument&) {cout << "Invalid argument";return 0;}
 	try {
-		if (c == '/') {cout << d1 / d2;}
-	    if (c == '+') {cout << d1 + d2;}
-	    if (c == '-') {cout << d1 - d2;}
-	    if (c == '*') {cout << d1 * d2;}
+		if (c == '/') {cout << d1 / d2 << endl;}
+	    if (c == '+') {cout << d1 + d2 << endl;}
+	    if (c == '-') {cout << d1 - d2 << endl;}
+	    if (c == '*') {cout << d1 * d2 << endl;}
 	} catch (domain_error&) {cout << "Division by zero"; return 0;}
-    return 0;
+	}
+
 }
