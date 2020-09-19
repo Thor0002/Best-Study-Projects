@@ -16,70 +16,70 @@ Conditions in the Find and Del commands impose certain restrictions on dates and
  - Del date < 2017-01-01 AND (event == "holiday" OR event == "sport event") - remove from the database all "holiday" and "sport event" events that occurred before 2017.
 In both types of commands, conditions can be empty: all events fall under this condition.
 
-Examples:
-1.
-Input:
- Add 2017-06-01 1st of June
- Add 2017-07-08 8th of July
- Add 2017-07-08 Someone's birthday
- Del date == 2017-07-08
-Output:
- Removed 2 entries
-2.
-Input:
- Add 2017-01-01 Holiday
- Add 2017-03-08 Holiday
- Add 2017-1-1 New Year
- Add 2017-1-1 New Year
- Print
-Output:
- 2017-01-01 Holiday
- 2017-01-01 New Year
- 2017-03-08 Holiday
-3.
-Input:
- Add 2017-01-01 Holiday
- Add 2017-03-08 Holiday
- Add 2017-01-01 New Year
- Find event != "working day"
- Add 2017-05-09 Holiday
-Output:
- 2017-01-01 Holiday
- 2017-01-01 New Year
- 2017-03-08 Holiday
- Found 3 entries
-4.
-Input:
- Add 2017-01-01 New Year
- Add 2017-03-08 Holiday
- Add 2017-01-01 Holiday
- Last 2016-12-31
- Last 2017-01-01
- Last 2017-06-01
- Add 2017-05-09 Holiday
-Output:
- No entries
- 2017-01-01 Holiday
- 2017-03-08 Holiday
-5.
-Input:
- Add 2017-11-21 Tuesday
- Add 2017-11-20 Monday
- Add 2017-11-21 Weekly meeting
- Print
- Find event != "Weekly meeting"
- Last 2017-11-30
- Del date > 2017-11-20
- Last 2017-11-30
- Last 2017-11-01
-Output:
- 2017-11-20 Monday
- 2017-11-21 Tuesday
- 2017-11-21 Weekly meeting
- 2017-11-20 Monday
- 2017-11-21 Tuesday
- Found 2 entries
- 2017-11-21 Weekly meeting
- Removed 2 entries
- 2017-11-20 Monday
- No entries
+Examples:  
+1.  
+Input:  
+ Add 2017-06-01 1st of June  
+ Add 2017-07-08 8th of July  
+ Add 2017-07-08 Someone's birthday  
+ Del date == 2017-07-08  
+Output:  
+ Removed 2 entries  
+2.  
+Input:  
+ Add 2017-01-01 Holiday  
+ Add 2017-03-08 Holiday  
+ Add 2017-1-1 New Year  
+ Add 2017-1-1 New Year  
+ Print  
+Output:  
+ 2017-01-01 Holiday  
+ 2017-01-01 New Year  
+ 2017-03-08 Holiday  
+3.  
+Input:  
+ Add 2017-01-01 Holiday  
+ Add 2017-03-08 Holiday  
+ Add 2017-01-01 New Year  
+ Find event != "working day"  
+ Add 2017-05-09 Holiday  
+Output:  
+ 2017-01-01 Holiday  
+ 2017-01-01 New Year  
+ 2017-03-08 Holiday  
+ Found 3 entries  
+4.  
+Input:  
+ Add 2017-01-01 New Year  
+ Add 2017-03-08 Holiday  
+ Add 2017-01-01 Holiday  
+ Last 2016-12-31  
+ Last 2017-01-01  
+ Last 2017-06-01  
+ Add 2017-05-09 Holiday  
+Output:  
+ No entries  
+ 2017-01-01 Holiday  
+ 2017-03-08 Holiday  
+5.  
+Input:  
+ Add 2017-11-21 Tuesday  
+ Add 2017-11-20 Monday  
+ Add 2017-11-21 Weekly meeting  
+ Print  
+ Find event != "Weekly meeting"  
+ Last 2017-11-30  
+ Del date > 2017-11-20  
+ Last 2017-11-30  
+ Last 2017-11-01  
+Output:  
+ 2017-11-20 Monday  
+ 2017-11-21 Tuesday  
+ 2017-11-21 Weekly meeting  
+ 2017-11-20 Monday  
+ 2017-11-21 Tuesday  
+ Found 2 entries  
+ 2017-11-21 Weekly meeting  
+ Removed 2 entries  
+ 2017-11-20 Monday  
+ No entries  
