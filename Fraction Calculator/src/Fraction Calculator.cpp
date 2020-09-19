@@ -78,6 +78,7 @@ istream& operator>>(istream& istream, Rational& d){
 	int n, m;
 	string s;
 	istream >> s;
+    if (s == "") {exit(1);}
 	stringstream ss(s);
 	if(not (ss >> n)){
 		throw invalid_argument("");
@@ -112,9 +113,10 @@ bool operator<(Rational d1, Rational d2){
 int main() {
 	Rational d1, d2;
 	char c;
-	while(cout){
-	try {cin >> d1 >> c >> d2;}
-	catch (invalid_argument&) {cout << "Invalid argument";return 0;}
+	cout << "To calculate something, enter an expression like: 1/2 + 1/2" << endl;
+    try {
+	while(cin >> d1){
+	cin >> c >> d2;
 	try {
 		if (c == '/') {cout << d1 / d2 << endl;}
 	    if (c == '+') {cout << d1 + d2 << endl;}
@@ -122,5 +124,6 @@ int main() {
 	    if (c == '*') {cout << d1 * d2 << endl;}
 	} catch (domain_error&) {cout << "Division by zero"; return 0;}
 	}
+    } catch (invalid_argument&) {cout << "Invalid argument";return 0;}
 
 }
