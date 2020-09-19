@@ -1,8 +1,9 @@
 #lang scheme
 
-;Given the text of the program in Scheme given at the input (read from the input file), 
-;the function ParseFile outputs the names of the functions described in this file into two output files:
-;the first is non-recursive functions, the second is recursive.
+; Given the text of the program in Scheme given at the input (read from the input file), 
+; the function ParseFile outputs the names of the functions described in this file into two output files:
+; the first is non-recursive functions("non recursive functions.txt"), 
+; the second is recursive functions("recursive functions.txt").
 
 (define (ParseFile file-in )
   (define in (open-input-file file-in))
