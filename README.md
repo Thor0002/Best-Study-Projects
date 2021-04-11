@@ -1,6 +1,6 @@
 # The-best-works
 Java:   
-1)Calctulator - Graphic Calculator with complex numbers.
+1)Calctulator - Graphic Calculator with complex numbers. 
 2)Figure - (Using awt and JFrame) Interface "IShape" with methods for calculating the area and perimeter of an isosceles trapezoid, which can draw it on a coordinate plane along the height and bases.
 
 С++:  
