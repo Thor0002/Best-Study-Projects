@@ -1,4 +1,8 @@
 # The-best-works
+Java:
+1) Graphic Calculator with complex numbers.
+2) (Using awt and JFrame) Interface "IShape" with methods for calculating the area and perimeter of an isosceles trapezoid, which can draw it on a coordinate plane along the height and bases.
+
 С++:  
 1)Database - this program implements work with a database,  
   which stores pairs of the form: date, event.  
